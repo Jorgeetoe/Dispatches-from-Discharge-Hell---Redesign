@@ -14,6 +14,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
     { label: 'Jargon Buster', view: AppView.JARGON_BUSTER },
     { label: 'Checklist', view: AppView.CHECKLIST_GENERATOR },
     { label: 'Benefits Translator', view: AppView.BENEFITS_TRANSLATOR },
+    { label: 'About Me', view: AppView.ABOUT },
     { label: 'Submit', view: AppView.SUBMIT },
   ];
 

@@ -16,6 +16,7 @@ export enum AppView {
   CHECKLIST_GENERATOR = 'CHECKLIST_GENERATOR',
   BENEFITS_TRANSLATOR = 'BENEFITS_TRANSLATOR',
   SUBMIT = 'SUBMIT',
+  ABOUT = 'ABOUT',
 }
 
 export interface ChecklistItem {
