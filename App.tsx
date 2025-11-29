@@ -28,7 +28,7 @@ function App() {
                 Dispatches from <span className="text-rose-600 italic">Discharge Hell</span>
               </h1>
               <p className="text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
-                Stories from understanding the differences and significant gaps between "safe and appropriate" discharges from catastrophic care. The Home of Last Resort Thought Process and chronicles™.
+                Stories from understanding the differences and significant gaps between "safe and appropriate" discharges from catastrophic care. The Home of Last Resort Thought Concept and chronicles™. Where medical necessity meets administrative absurdity.
               </p>
             </div>
             <StoryFeed stories={MOCK_STORIES} onReadStory={handleReadStory} />
