@@ -28,7 +28,7 @@ export const explainMedicalJargon = async (text: string): Promise<string> => {
   }
 };
 
-export const generateDischargeChecklist = async (condition: string): Promise<ChecklistResponse | null> => {
+export const generateChecklist = async (condition: string, type: 'discharge' | 'admission'): Promise<ChecklistResponse | null> => {
   if (!condition) return null;
 
   const schema: Schema = {
@@ -40,7 +40,7 @@ export const generateDischargeChecklist = async (condition: string): Promise<Che
         items: {
           type: Type.OBJECT,
           properties: {
-            category: { type: Type.STRING, description: "Category like 'Medication', 'Follow-up', 'Home Care'" },
+            category: { type: Type.STRING, description: "Category like 'Medication', 'Documents', 'Home Prep'" },
             task: { type: Type.STRING, description: "Specific action item for the patient" },
             priority: { type: Type.STRING, enum: ["High", "Medium", "Low"] }
           },
@@ -51,11 +51,16 @@ export const generateDischargeChecklist = async (condition: string): Promise<Che
     required: ["title", "items"]
   };
 
+  const typeText = type === 'discharge' ? 'hospital discharge' : 'hospital admission';
+  const focusText = type === 'discharge'
+    ? 'Focus on things patients often forget to ask or do upon leaving. Make it practical and safety-focused.'
+    : 'Focus on what to pack, documents to bring, questions to ask the intake team, and how to prepare the home for an absence.';
+
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: `Generate a personalized hospital discharge checklist for a patient recovering from: ${condition}.
-      Focus on things patients often forget to ask or do. Make it practical and safety-focused.`,
+      contents: `Generate a personalized ${typeText} checklist for a patient regarding: ${condition}.
+      ${focusText}`,
       config: {
         responseMimeType: "application/json",
         responseSchema: schema,

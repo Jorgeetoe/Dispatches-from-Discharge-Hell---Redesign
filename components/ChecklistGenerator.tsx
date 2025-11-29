@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { generateDischargeChecklist } from '../services/geminiService';
+import { generateChecklist } from '../services/geminiService';
 import { ChecklistResponse } from '../types';
 
 const ChecklistGenerator: React.FC = () => {
   const [condition, setCondition] = useState('');
+  const [checklistType, setChecklistType] = useState<'discharge' | 'admission'>('discharge');
   const [checklist, setChecklist] = useState<ChecklistResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -13,7 +14,7 @@ const ChecklistGenerator: React.FC = () => {
     setChecklist(null);
     
     try {
-      const result = await generateDischargeChecklist(condition);
+      const result = await generateChecklist(condition, checklistType);
       setChecklist(result);
     } finally {
       setIsLoading(false);
@@ -23,10 +24,35 @@ const ChecklistGenerator: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-12 px-4">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-serif font-bold text-stone-900 mb-4">Discharge Checklist Generator</h2>
+        <h2 className="text-3xl font-serif font-bold text-stone-900 mb-4">Patient Checklist Generator</h2>
         <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-          Don't leave the hospital without a plan. Enter your condition or procedure, and we'll generate a safety checklist of questions to ask and things to prepare.
+          Whether you are preparing to enter the hospital or getting ready to leave, don't miss a step. Select your phase of care and let us generate a safety plan for you.
         </p>
+      </div>
+
+      <div className="flex justify-center mb-8">
+        <div className="bg-white p-1 rounded-xl shadow-sm border border-stone-200 inline-flex">
+          <button
+            onClick={() => { setChecklistType('admission'); setChecklist(null); }}
+            className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${
+              checklistType === 'admission'
+                ? 'bg-stone-900 text-white shadow-md'
+                : 'text-stone-500 hover:text-stone-900'
+            }`}
+          >
+            Admissions
+          </button>
+          <button
+            onClick={() => { setChecklistType('discharge'); setChecklist(null); }}
+            className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${
+              checklistType === 'discharge'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-stone-500 hover:text-stone-900'
+            }`}
+          >
+            Discharge
+          </button>
+        </div>
       </div>
 
       {/* Input Section */}
@@ -35,7 +61,7 @@ const ChecklistGenerator: React.FC = () => {
           type="text"
           value={condition}
           onChange={(e) => setCondition(e.target.value)}
-          placeholder="e.g., Hip Replacement, Pneumonia, C-Section"
+          placeholder={checklistType === 'discharge' ? "e.g., Hip Replacement, Pneumonia" : "e.g., Planned Surgery, Observation"}
           className="flex-1 px-5 py-4 rounded-xl border border-stone-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-lg shadow-sm"
           onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
         />
@@ -45,17 +71,24 @@ const ChecklistGenerator: React.FC = () => {
           className={`px-8 py-4 rounded-xl font-bold text-white text-lg shadow-md transition-all whitespace-nowrap ${
             isLoading || !condition.trim()
               ? 'bg-stone-400 cursor-not-allowed'
-              : 'bg-teal-600 hover:bg-teal-700 hover:shadow-lg transform hover:-translate-y-0.5'
+              : checklistType === 'discharge' 
+                ? 'bg-rose-600 hover:bg-rose-700 hover:shadow-lg transform hover:-translate-y-0.5'
+                : 'bg-stone-900 hover:bg-stone-800 hover:shadow-lg transform hover:-translate-y-0.5'
           }`}
         >
-          {isLoading ? 'Generating...' : 'Create Checklist'}
+          {isLoading ? 'Generating...' : `Create ${checklistType === 'admission' ? 'Admissions' : 'Discharge'} List`}
         </button>
       </div>
 
       {/* Results Section */}
       {checklist && (
         <div className="bg-white rounded-2xl shadow-xl border border-stone-200 overflow-hidden animate-fade-in">
-          <div className="bg-teal-600 px-6 py-6 sm:px-8">
+          <div className={`${checklistType === 'discharge' ? 'bg-rose-600' : 'bg-stone-900'} px-6 py-6 sm:px-8 transition-colors`}>
+            <div className="flex items-center space-x-3 mb-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-white/80 bg-black/20 px-2 py-1 rounded">
+                {checklistType === 'admission' ? 'Incoming Patient' : 'Discharge Plan'}
+              </span>
+            </div>
             <h3 className="text-2xl font-serif font-bold text-white">
               {checklist.title}
             </h3>
