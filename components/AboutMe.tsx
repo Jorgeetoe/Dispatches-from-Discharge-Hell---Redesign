@@ -21,9 +21,12 @@ const AboutMe: React.FC = () => {
           <section>
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="md:w-1/3 flex-shrink-0">
-                <div className="aspect-square bg-stone-100 rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-stone-200">
-                   {/* Placeholder for Headshot - using initials for now */}
-                   <div className="text-8xl font-serif font-bold text-stone-300">JA</div>
+                <div className="aspect-square bg-stone-100 rounded-xl overflow-hidden shadow-inner border border-stone-200">
+                   <img 
+                     src="/jorge.png" 
+                     alt="Jorge Arenivar" 
+                     className="w-full h-full object-cover"
+                   />
                 </div>
               </div>
               <div className="md:w-2/3">

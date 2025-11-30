@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import StoryFeed from './components/StoryFeed';
-import JargonBuster from './components/JargonBuster';
 import ChecklistGenerator from './components/ChecklistGenerator';
 import BenefitsTranslator from './components/BenefitsTranslator';
 import AboutMe from './components/AboutMe';
+import SubmitStory from './components/SubmitStory';
 import { MOCK_STORIES } from './constants';
 import { AppView, Story } from './types';
 
@@ -68,23 +68,8 @@ function App() {
                 {selectedStory.content}
               </div>
             </article>
-            
-            {/* Call to action at bottom of story */}
-            <div className="mt-16 bg-rose-50 p-8 rounded-2xl text-center">
-              <h3 className="text-xl font-bold text-rose-900 mb-2">Confused by your own paperwork?</h3>
-              <p className="text-rose-800 mb-6">Use our AI tool to translate your discharge summary into plain English.</p>
-              <button 
-                onClick={() => setCurrentView(AppView.JARGON_BUSTER)}
-                className="bg-rose-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-rose-700 transition-colors"
-              >
-                Try Jargon Buster
-              </button>
-            </div>
           </div>
         );
-
-      case AppView.JARGON_BUSTER:
-        return <JargonBuster />;
 
       case AppView.CHECKLIST_GENERATOR:
         return <ChecklistGenerator />;
@@ -96,27 +81,7 @@ function App() {
         return <AboutMe />;
 
       case AppView.SUBMIT:
-        return (
-          <div className="max-w-2xl mx-auto px-4 py-12 text-center">
-             <div className="bg-white p-12 rounded-3xl shadow-xl border border-stone-100">
-                <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
-                </div>
-                <h2 className="text-3xl font-serif font-bold text-stone-900 mb-4">Share Your Dispatch</h2>
-                <p className="text-stone-600 text-lg mb-8">
-                  Your story could help someone else advocate for themselves. We are currently accepting submissions via email.
-                </p>
-                <a 
-                  href="mailto:stories@dispatchesfromdischargehell.com" 
-                  className="inline-block bg-stone-900 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-stone-800 transition-colors"
-                >
-                  Email Your Story
-                </a>
-             </div>
-          </div>
-        );
+        return <SubmitStory />;
         
       default:
         return <div>Page not found</div>;
@@ -134,7 +99,6 @@ function App() {
           <p className="font-serif text-2xl text-stone-100 font-bold mb-4">Dispatches from Discharge Hell</p>
           <div className="flex justify-center space-x-6 mb-8 text-sm font-medium">
              <button onClick={() => setCurrentView(AppView.HOME)} className="hover:text-white transition-colors">Stories</button>
-             <button onClick={() => setCurrentView(AppView.JARGON_BUSTER)} className="hover:text-white transition-colors">Jargon Buster</button>
              <button onClick={() => setCurrentView(AppView.CHECKLIST_GENERATOR)} className="hover:text-white transition-colors">Checklist</button>
              <button onClick={() => setCurrentView(AppView.BENEFITS_TRANSLATOR)} className="hover:text-white transition-colors">Benefits Translator</button>
              <button onClick={() => setCurrentView(AppView.ABOUT)} className="hover:text-white transition-colors">About</button>
