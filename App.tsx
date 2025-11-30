@@ -5,6 +5,8 @@ import ChecklistGenerator from './components/ChecklistGenerator';
 import BenefitsTranslator from './components/BenefitsTranslator';
 import AboutMe from './components/AboutMe';
 import SubmitStory from './components/SubmitStory';
+import FrameworkBreakdown from './components/FrameworkBreakdown';
+import Archive from './components/Archive';
 import { MOCK_STORIES } from './constants';
 import { AppView, Story } from './types';
 
@@ -35,6 +37,9 @@ function App() {
           </div>
         );
 
+      case AppView.ARCHIVE:
+        return <Archive onReadStory={handleReadStory} />;
+
       case AppView.STORY:
         if (!selectedStory) return null;
         return (
@@ -48,7 +53,7 @@ function App() {
               </svg>
               Back to Stories
             </button>
-            <article className="prose prose-stone prose-lg mx-auto">
+            <article className="prose prose-stone prose-lg mx-auto mb-16">
               <div className="flex items-center space-x-2 text-sm font-bold text-rose-600 uppercase tracking-wider mb-4">
                 <span>{selectedStory.tags.join(', ')}</span>
               </div>
@@ -67,6 +72,8 @@ function App() {
               <div className="whitespace-pre-line text-stone-800 font-serif leading-loose">
                 {selectedStory.content}
               </div>
+              
+              <FrameworkBreakdown story={selectedStory} />
             </article>
           </div>
         );

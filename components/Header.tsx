@@ -11,6 +11,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
 
   const navItems = [
     { label: 'Stories', view: AppView.HOME },
+    { label: 'Archive', view: AppView.ARCHIVE },
     { label: 'Checklist', view: AppView.CHECKLIST_GENERATOR },
     { label: 'Benefits Translator', view: AppView.BENEFITS_TRANSLATOR },
     { label: 'About Me', view: AppView.ABOUT },

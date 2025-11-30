@@ -7,10 +7,17 @@ export interface Story {
   content: string;
   tags: string[];
   readTime: number; // in minutes
+  extractionMechanism: string;
+  contentTier: string;
+  satiricalDevice: string;
+  systemLayer: string;
+  intendedReader: string;
+  fixerElements: string[];
 }
 
 export enum AppView {
   HOME = 'HOME',
+  ARCHIVE = 'ARCHIVE',
   STORY = 'STORY',
   CHECKLIST_GENERATOR = 'CHECKLIST_GENERATOR',
   BENEFITS_TRANSLATOR = 'BENEFITS_TRANSLATOR',

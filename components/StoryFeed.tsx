@@ -12,30 +12,46 @@ const StoryFeed: React.FC<StoryFeedProps> = ({ stories, onReadStory }) => {
       {stories.map((story) => (
         <article 
           key={story.id} 
-          className="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden hover:shadow-md transition-shadow duration-300"
+          className="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden hover:shadow-md transition-shadow"
         >
-          <div className="p-8 sm:p-10">
+          <div className="p-8">
+            
+            {/* METADATA BADGES - NEW */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {story.tags.map(tag => (
-                <span key={tag} className="inline-block px-3 py-1 bg-rose-50 text-rose-700 text-xs font-bold uppercase tracking-wider rounded-full">
-                  {tag}
-                </span>
-              ))}
+              <span className="inline-flex items-center px-2 py-1 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-wider rounded">
+                {story.extractionMechanism}
+              </span>
+              <span className="inline-flex items-center px-2 py-1 bg-stone-100 text-stone-700 text-xs font-bold uppercase tracking-wider rounded">
+                {story.contentTier}
+              </span>
+              <span className="inline-flex items-center px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-wider rounded">
+                {story.satiricalDevice}
+              </span>
             </div>
+
+            {/* TITLE */}
             <h2 
               className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mb-3 cursor-pointer hover:text-rose-600 transition-colors"
               onClick={() => onReadStory(story)}
             >
               {story.title}
             </h2>
+
+            {/* META */}
             <div className="flex items-center text-sm text-stone-500 mb-6 font-medium">
               <span>{story.date}</span>
               <span className="mx-2">•</span>
               <span>{story.readTime} min read</span>
+              <span className="mx-2">•</span>
+              <span>{story.systemLayer}</span>
             </div>
+
+            {/* PREVIEW */}
             <p className="text-stone-600 leading-relaxed mb-6 text-lg font-serif">
               {story.preview}
             </p>
+
+            {/* CTA */}
             <button 
               onClick={() => onReadStory(story)}
               className="inline-flex items-center text-rose-600 font-bold hover:text-rose-700 transition-colors uppercase tracking-wide text-sm"

@@ -8,6 +8,12 @@ export const MOCK_STORIES: Story[] = [
     date: "Mar 15, 2024",
     readTime: 6,
     tags: ["Rural Health", "Trauma", "System Failure"],
+    extractionMechanism: "Systemic Failure",
+    contentTier: "Level I Trauma",
+    satiricalDevice: "Metaphor",
+    systemLayer: "Trauma Network",
+    intendedReader: "Policy Makers & Families",
+    fixerElements: ["Geographic Disparity", "Resource Allocation", "Continuum Gaps"],
     preview: "Catastrophic injury care in Texas is like ordering a five-star meal and getting served a gas station sandwich on your way home...",
     content: `Let's be honest: catastrophic injury care in Texas is like ordering a five-star meal and getting served a gas station sandwich on your way home.
 The moment your loved one enters the doors of a Level I trauma center after a devastating brain or spinal cord injury, you're automatically enrolled in "Healthcare: The Ultimate Bait and Switch" – where world-class care in urban centers gives way to the medical equivalent of tumbleweeds once you return to rural Texas.
@@ -46,6 +52,12 @@ At Last Resort Rehab Hospital™, our "Insurance Denial Gardens" are where hope 
     date: "Mar 28, 2024",
     readTime: 8,
     tags: ["Insurance Denials", "Advocacy", "Ethics"],
+    extractionMechanism: "Prior Authorization",
+    contentTier: "Denial Logic",
+    satiricalDevice: "Irony",
+    systemLayer: "Payer System",
+    intendedReader: "Clinical Advocates",
+    fixerElements: ["Subjective Criteria", "Denial Economics", "Clinical Autonomy"],
     preview: "I've watched 'medical necessity' transform from a clinical concept into an insurance company's favorite magic trick – now you see the coverage, now you don't.",
     content: `Let's be honest: explaining "medical necessity" to families after a catastrophic brain injury is like trying to teach quantum physics to someone while their house is on fire. It's technically important information, but all they really care about is putting out the flames.
 
@@ -81,6 +93,12 @@ At Last Resort Rehab Hospital™, we've installed "Insurance Coverage Countdown 
     date: "Apr 02, 2024",
     readTime: 5,
     tags: ["Discharge Planning", "Admin Absurdity", "Satire"],
+    extractionMechanism: "Admin Decree",
+    contentTier: "Operational",
+    satiricalDevice: "Hyperbole",
+    systemLayer: "Hospital Admin",
+    intendedReader: "Case Managers & Administrators",
+    fixerElements: ["Bureaucratic Friction", "Process Failure", "Staff Burnout"],
     preview: "In rehabilitation medicine, discharge planning begins before admission — a concept as logical as planning your funeral before your birth.",
     content: `Let's be honest: in rehabilitation medicine, discharge planning begins before admission — a concept as logical as planning your funeral before your birth. Welcome to the wild world of catastrophic care, where the finish line is determined before we've even unloaded your stretcher.
 
