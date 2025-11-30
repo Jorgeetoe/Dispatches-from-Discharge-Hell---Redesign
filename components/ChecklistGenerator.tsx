@@ -12,7 +12,6 @@ const ChecklistGenerator: React.FC = () => {
     if (!condition.trim()) return;
     setIsLoading(true);
     setChecklist(null);
-    
     try {
       const result = await generateChecklist(condition, checklistType);
       setChecklist(result);
@@ -22,123 +21,103 @@ const ChecklistGenerator: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-serif font-bold text-stone-900 mb-4">Patient Checklist Generator</h2>
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Discharge Safety Checklist</h2>
         <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-          Whether you are preparing to enter the hospital or getting ready to leave, don't miss a step. Select your phase of care and let us generate a safety plan for you.
+          Don't leave the hospital unprepared. Generate a tailored checklist for your specific condition to ensure a safer transition home.
         </p>
       </div>
 
-      <div className="flex justify-center mb-8">
-        <div className="bg-white p-1 rounded-xl shadow-sm border border-stone-200 inline-flex">
+      <div className="bg-white rounded-2xl shadow-xl border border-stone-200 p-6 sm:p-10 mb-12">
+        <div className="flex flex-col md:flex-row gap-6 items-start md:items-end">
+          <div className="flex-grow w-full">
+            <label className="block text-sm font-bold text-stone-700 mb-2 uppercase tracking-wide">
+              Medical Condition / Procedure
+            </label>
+            <input
+              type="text"
+              value={condition}
+              onChange={(e) => setCondition(e.target.value)}
+              placeholder="e.g. Hip Replacement, Traumatic Brain Injury, Stroke"
+              className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition-all text-lg"
+              onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
+            />
+          </div>
+          
+          <div className="w-full md:w-auto flex flex-row gap-2 bg-stone-100 p-1 rounded-lg">
+             <button
+               onClick={() => setChecklistType('discharge')}
+               className={`flex-1 md:flex-none px-6 py-3 rounded-md font-medium text-sm transition-all ${
+                 checklistType === 'discharge' 
+                   ? 'bg-white text-rose-600 shadow-sm' 
+                   : 'text-stone-500 hover:text-stone-900'
+               }`}
+             >
+               Discharge
+             </button>
+             <button
+               onClick={() => setChecklistType('admission')}
+               className={`flex-1 md:flex-none px-6 py-3 rounded-md font-medium text-sm transition-all ${
+                 checklistType === 'admission' 
+                   ? 'bg-white text-rose-600 shadow-sm' 
+                   : 'text-stone-500 hover:text-stone-900'
+               }`}
+             >
+               Admission
+             </button>
+          </div>
+
           <button
-            onClick={() => { setChecklistType('admission'); setChecklist(null); }}
-            className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${
-              checklistType === 'admission'
-                ? 'bg-stone-900 text-white shadow-md'
-                : 'text-stone-500 hover:text-stone-900'
+            onClick={handleGenerate}
+            disabled={isLoading || !condition.trim()}
+            className={`w-full md:w-auto px-8 py-3 rounded-lg font-bold text-white transition-all shadow-md whitespace-nowrap ${
+              isLoading || !condition.trim()
+                ? 'bg-stone-400 cursor-not-allowed'
+                : 'bg-stone-900 hover:bg-stone-800 hover:shadow-lg transform hover:-translate-y-0.5'
             }`}
           >
-            Admissions
-          </button>
-          <button
-            onClick={() => { setChecklistType('discharge'); setChecklist(null); }}
-            className={`px-6 py-2 rounded-lg text-sm font-bold transition-all ${
-              checklistType === 'discharge'
-                ? 'bg-rose-600 text-white shadow-md'
-                : 'text-stone-500 hover:text-stone-900'
-            }`}
-          >
-            Discharge
+            {isLoading ? 'Generating...' : 'Generate Checklist'}
           </button>
         </div>
       </div>
 
-      {/* Input Section */}
-      <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mb-12">
-        <input
-          type="text"
-          value={condition}
-          onChange={(e) => setCondition(e.target.value)}
-          placeholder={checklistType === 'discharge' ? "e.g., Hip Replacement, Pneumonia" : "e.g., Planned Surgery, Observation"}
-          className="flex-1 px-5 py-4 rounded-xl border border-stone-300 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none text-lg shadow-sm"
-          onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
-        />
-        <button
-          onClick={handleGenerate}
-          disabled={isLoading || !condition.trim()}
-          className={`px-8 py-4 rounded-xl font-bold text-white text-lg shadow-md transition-all whitespace-nowrap ${
-            isLoading || !condition.trim()
-              ? 'bg-stone-400 cursor-not-allowed'
-              : checklistType === 'discharge' 
-                ? 'bg-rose-600 hover:bg-rose-700 hover:shadow-lg transform hover:-translate-y-0.5'
-                : 'bg-stone-900 hover:bg-stone-800 hover:shadow-lg transform hover:-translate-y-0.5'
-          }`}
-        >
-          {isLoading ? 'Generating...' : `Create ${checklistType === 'admission' ? 'Admissions' : 'Discharge'} List`}
-        </button>
-      </div>
-
-      {/* Results Section */}
       {checklist && (
-        <div className="bg-white rounded-2xl shadow-xl border border-stone-200 overflow-hidden animate-fade-in">
-          <div className={`${checklistType === 'discharge' ? 'bg-rose-600' : 'bg-stone-900'} px-6 py-6 sm:px-8 transition-colors`}>
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-white/80 bg-black/20 px-2 py-1 rounded">
-                {checklistType === 'admission' ? 'Incoming Patient' : 'Discharge Plan'}
-              </span>
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-white">
-              {checklist.title}
-            </h3>
+        <div className="animate-fade-in bg-white rounded-2xl shadow-xl border border-stone-200 overflow-hidden">
+          <div className="bg-rose-600 px-8 py-6 text-white">
+            <h3 className="text-2xl font-serif font-bold">{checklist.title}</h3>
           </div>
-          <div className="p-6 sm:p-8">
+          <div className="p-8">
             <div className="grid gap-6">
               {checklist.items.map((item, index) => (
-                <div 
-                  key={index} 
-                  className="flex items-start p-4 rounded-lg bg-stone-50 border border-stone-100 hover:border-teal-200 transition-colors"
-                >
-                  <div className={`mt-1 h-5 w-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
-                    item.priority === 'High' ? 'border-rose-500' : 
-                    item.priority === 'Medium' ? 'border-amber-500' : 'border-teal-500'
-                  }`}>
-                     <div className={`h-2.5 w-2.5 rounded-full ${
-                        item.priority === 'High' ? 'bg-rose-500' : 
-                        item.priority === 'Medium' ? 'bg-amber-500' : 'bg-teal-500'
-                     }`}></div>
-                  </div>
+                <div key={index} className="flex items-start p-4 rounded-lg bg-stone-50 border border-stone-100 hover:border-rose-200 transition-colors">
+                  <div className={`mt-1 flex-shrink-0 w-3 h-3 rounded-full ${
+                    item.priority === 'High' ? 'bg-rose-500' : 
+                    item.priority === 'Medium' ? 'bg-amber-400' : 'bg-green-400'
+                  }`} />
                   <div className="ml-4">
-                    <p className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-1">
-                      {item.category}
-                    </p>
-                    <p className="text-stone-800 font-medium text-lg">
-                      {item.task}
-                    </p>
-                  </div>
-                  <div className="ml-auto pl-4">
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      item.priority === 'High' ? 'bg-rose-100 text-rose-800' :
-                      item.priority === 'Medium' ? 'bg-amber-100 text-amber-800' :
-                      'bg-teal-100 text-teal-800'
-                    }`}>
-                      {item.priority} Priority
-                    </span>
+                    <p className="text-stone-900 font-medium text-lg mb-1">{item.task}</p>
+                    <div className="flex items-center gap-3">
+                       <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">{item.category}</span>
+                       <span className={`text-xs px-2 py-0.5 rounded-full ${
+                         item.priority === 'High' ? 'bg-rose-100 text-rose-700' : 
+                         item.priority === 'Medium' ? 'bg-amber-100 text-amber-800' : 'bg-green-100 text-green-800'
+                       }`}>
+                         {item.priority} Priority
+                       </span>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-8 flex justify-center">
-              <button 
-                onClick={() => window.print()} 
-                className="text-stone-500 hover:text-stone-900 font-medium flex items-center gap-2"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                </svg>
-                Print Checklist
-              </button>
+            
+            <div className="mt-8 flex justify-end">
+               <button onClick={() => window.print()} className="flex items-center text-stone-500 hover:text-stone-900 font-medium text-sm">
+                  <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  Print Checklist
+               </button>
             </div>
           </div>
         </div>
