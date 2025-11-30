@@ -1,0 +1,21 @@
+{
+  "stories": [
+    {
+      "id": "1",
+      "title": "The Insight Gap: Why Rehab Sends Families Home Still Believing the Wrong Things",
+      "author": "Jorge Arenivar, RN CCM CRRN",
+      "date": "December 1, 2025",
+      "readTime": 8,
+      "preview": "Families arrive with baseline delusions. We document education without delivering understanding. We discharge into preventable risk.",
+      "content": "Let's be honest: The most dangerous thing a patient can bring to rehabilitation isn't a multidrug-resistant organism; it's a family with 'Baseline Delusions.'\n\nThese aren't psychiatric delusions. They are the protected, optimistic misunderstandings that acute care hospitals carefully preserve because shattering them takes too much time. Families arrive believing that 'rehab' is where the cure happens. They believe the insurance company wants their loved one to get better. They believe that if they just work hard enough, life will go back to normal.\n\n### The Documentation vs. The Delivery\nIn the electronic medical record, we document 'Education Provided: Verbalized Understanding.'\nBut what actually happened?\nWe handed a bewildered spouse a packet of papers thick enough to stop a bullet, explained complex nursing care while they were staring at the monitors, and asked 'Do you have any questions?' when they didn't even know enough to have doubts.\n\n### The Gap\nThis is the Insight Gap. It is the distance between what the family *thinks* is happening and what is *actually* happening.\n* **They think:** We are fixing the problem.\n* **We know:** We are adapting to the disaster.\n* **They think:** Discharge happens when the patient is ready.\n* **We know:** Discharge happens when the days run out.\n\n### The Cost Bearer\nWhen we discharge a patient into this gap, the family falls in. They go home unprepared for the sleep deprivation, the physical burden, and the administrative warfare of denied claims. The hospital metrics look great—Length of Stay targets met! Readmission rates stable!—but the human cost is exported entirely to the living room of a ranch style house where a wife is trying to figure out how to lift a 200-pound man without breaking her back.\n\nAt Last Resort Rehab Hospital™, we pride ourselves on our 'Educational Throughput,' measuring how many pamphlets we can distribute per hour, regardless of literacy, grief, or exhaustion.",
+      "status": "Published",
+      "extractionMechanism": "Information Asymmetry",
+      "fixerElements": ["Gap", "Competing Interests", "Hidden Info", "Moral Compromise", "Cost Bearer"],
+      "systemLayer": "Hospital",
+      "intendedReader": "Clinician Validation",
+      "satiricalDevice": "False Civility",
+      "contentTier": "Tier 1: Deep Dive",
+      "tags": ["Clinical Insight", "Family Education", "Discharge Reality"]
+    }
+  ]
+}

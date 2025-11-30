@@ -13,6 +13,7 @@ export interface Story {
   systemLayer: string;
   intendedReader: string;
   fixerElements: string[];
+  status?: string;
 }
 
 export enum AppView {
