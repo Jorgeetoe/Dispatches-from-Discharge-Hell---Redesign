@@ -7,6 +7,9 @@ import AboutMe from './components/AboutMe';
 import SubmitStory from './components/SubmitStory';
 import FrameworkBreakdown from './components/FrameworkBreakdown';
 import Archive from './components/Archive';
+import NewsletterSignup from './components/NewsletterSignup';
+import FAQ from './components/FAQ';
+import FrameworkLegend from './components/FrameworkLegend';
 import { MOCK_STORIES } from './constants';
 import { AppView, Story } from './types';
 
@@ -33,6 +36,7 @@ function App() {
                 Stories from understanding the differences and significant gaps between "safe and appropriate" discharges from catastrophic care. The Home of Last Resort Thought Concept and chronicles™. Where medical necessity meets administrative absurdity.
               </p>
             </div>
+            <NewsletterSignup />
             <StoryFeed stories={MOCK_STORIES} onReadStory={handleReadStory} />
           </div>
         );
@@ -90,6 +94,12 @@ function App() {
       case AppView.SUBMIT:
         return <SubmitStory />;
         
+      case AppView.FAQ:
+        return <FAQ />;
+
+      case AppView.FRAMEWORK:
+        return <FrameworkLegend />;
+        
       default:
         return <div>Page not found</div>;
     }
@@ -105,12 +115,16 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="font-serif text-2xl text-stone-100 font-bold mb-4">Dispatches from Discharge Hell</p>
           
-          <div className="flex justify-center space-x-6 mb-8 text-sm font-medium">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 text-sm font-medium">
              <button onClick={() => setCurrentView(AppView.HOME)} className="hover:text-white transition-colors">Stories</button>
              <button onClick={() => setCurrentView(AppView.CHECKLIST_GENERATOR)} className="hover:text-white transition-colors">Checklist</button>
              <button onClick={() => setCurrentView(AppView.BENEFITS_TRANSLATOR)} className="hover:text-white transition-colors">Benefits Translator</button>
              <button onClick={() => setCurrentView(AppView.ABOUT)} className="hover:text-white transition-colors">About</button>
+             <button onClick={() => setCurrentView(AppView.FRAMEWORK)} className="hover:text-white transition-colors">Framework</button>
+             <button onClick={() => setCurrentView(AppView.FAQ)} className="hover:text-white transition-colors">FAQ</button>
           </div>
+          
+          <NewsletterSignup minimal />
 
           <div className="flex justify-center items-center gap-8 mb-8">
             <a 

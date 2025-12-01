@@ -11,15 +11,18 @@ const Archive: React.FC<ArchiveProps> = ({ onReadStory }) => {
   const [selectedMechanism, setSelectedMechanism] = useState<string | null>(null);
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
   const [selectedLayer, setSelectedLayer] = useState<string | null>(null);
+  const [selectedReader, setSelectedReader] = useState<string | null>(null);
 
   const mechanisms = [...new Set(MOCK_STORIES.map(s => s.extractionMechanism))];
   const tiers = [...new Set(MOCK_STORIES.map(s => s.contentTier))];
   const layers = [...new Set(MOCK_STORIES.map(s => s.systemLayer))];
+  const readers = [...new Set(MOCK_STORIES.map(s => s.intendedReader))];
 
   const filtered = MOCK_STORIES.filter(story => 
     (!selectedMechanism || story.extractionMechanism === selectedMechanism) &&
     (!selectedTier || story.contentTier === selectedTier) &&
-    (!selectedLayer || story.systemLayer === selectedLayer)
+    (!selectedLayer || story.systemLayer === selectedLayer) &&
+    (!selectedReader || story.intendedReader === selectedReader)
   );
 
   return (
@@ -27,7 +30,7 @@ const Archive: React.FC<ArchiveProps> = ({ onReadStory }) => {
       <h1 className="text-4xl font-serif font-bold text-stone-900 mb-12">Archive</h1>
 
       {/* FILTERS */}
-      <div className="grid md:grid-cols-3 gap-6 mb-12">
+      <div className="grid md:grid-cols-4 gap-6 mb-12">
         
         {/* Mechanism Filter */}
         <div>
@@ -90,6 +93,28 @@ const Archive: React.FC<ArchiveProps> = ({ onReadStory }) => {
                 className={`block text-sm text-left ${selectedLayer === layer ? 'text-rose-600 font-bold' : 'text-stone-600 hover:text-stone-900'}`}
               >
                 {layer}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Intended Reader Filter */}
+        <div>
+          <h3 className="font-bold text-stone-700 text-sm uppercase tracking-wider mb-3">Intended Reader</h3>
+          <div className="space-y-2">
+            <button 
+              onClick={() => setSelectedReader(null)}
+              className={`block text-sm text-left ${!selectedReader ? 'text-rose-600 font-bold' : 'text-stone-600 hover:text-stone-900'}`}
+            >
+              All
+            </button>
+            {readers.map(reader => (
+              <button 
+                key={reader}
+                onClick={() => setSelectedReader(reader)}
+                className={`block text-sm text-left ${selectedReader === reader ? 'text-rose-600 font-bold' : 'text-stone-600 hover:text-stone-900'}`}
+              >
+                {reader}
               </button>
             ))}
           </div>

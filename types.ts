@@ -1,3 +1,4 @@
+
 export interface Story {
   id: string;
   title: string;
@@ -25,6 +26,8 @@ export enum AppView {
   LINKEDIN_GENERATOR = 'LINKEDIN_GENERATOR',
   SUBMIT = 'SUBMIT',
   ABOUT = 'ABOUT',
+  FAQ = 'FAQ',
+  FRAMEWORK = 'FRAMEWORK',
 }
 
 export interface ChecklistItem {
