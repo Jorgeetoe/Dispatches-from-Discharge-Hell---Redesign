@@ -27,7 +27,7 @@ export enum AppView {
   SUBMIT = 'SUBMIT',
   ABOUT = 'ABOUT',
   FAQ = 'FAQ',
-  FRAMEWORK = 'FRAMEWORK',
+  FRAMEWORK_LEGEND = 'FRAMEWORK_LEGEND',
 }
 
 export interface ChecklistItem {

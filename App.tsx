@@ -36,8 +36,8 @@ function App() {
                 Stories from understanding the differences and significant gaps between "safe and appropriate" discharges from catastrophic care. The Home of Last Resort Thought Concept and chronicles™. Where medical necessity meets administrative absurdity.
               </p>
             </div>
-            <NewsletterSignup />
             <StoryFeed stories={MOCK_STORIES} onReadStory={handleReadStory} />
+            <NewsletterSignup />
           </div>
         );
 
@@ -97,7 +97,7 @@ function App() {
       case AppView.FAQ:
         return <FAQ />;
 
-      case AppView.FRAMEWORK:
+      case AppView.FRAMEWORK_LEGEND:
         return <FrameworkLegend />;
         
       default:
@@ -116,15 +116,17 @@ function App() {
           <p className="font-serif text-2xl text-stone-100 font-bold mb-4">Dispatches from Discharge Hell</p>
           
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 text-sm font-medium">
+             <button onClick={() => setCurrentView(AppView.FRAMEWORK_LEGEND)} className="hover:text-white transition-colors">Framework Legend</button>
+             <button onClick={() => setCurrentView(AppView.FAQ)} className="hover:text-white transition-colors">FAQ</button>
              <button onClick={() => setCurrentView(AppView.HOME)} className="hover:text-white transition-colors">Stories</button>
              <button onClick={() => setCurrentView(AppView.CHECKLIST_GENERATOR)} className="hover:text-white transition-colors">Checklist</button>
              <button onClick={() => setCurrentView(AppView.BENEFITS_TRANSLATOR)} className="hover:text-white transition-colors">Benefits Translator</button>
              <button onClick={() => setCurrentView(AppView.ABOUT)} className="hover:text-white transition-colors">About</button>
-             <button onClick={() => setCurrentView(AppView.FRAMEWORK)} className="hover:text-white transition-colors">Framework</button>
-             <button onClick={() => setCurrentView(AppView.FAQ)} className="hover:text-white transition-colors">FAQ</button>
           </div>
           
-          <NewsletterSignup minimal />
+          <div className="mb-8 bg-stone-800 rounded-lg p-6">
+            <NewsletterSignup minimal={true} />
+          </div>
 
           <div className="flex justify-center items-center gap-8 mb-8">
             <a 

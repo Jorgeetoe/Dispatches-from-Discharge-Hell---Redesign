@@ -12,7 +12,7 @@
       "extractionMechanism": "Information Asymmetry",
       "fixerElements": ["Gap", "Competing Interests", "Hidden Info", "Moral Compromise", "Cost Bearer"],
       "systemLayer": "Hospital",
-      "intendedReader": "Clinician Validation",
+      "intendedReader": "Healthcare Professional",
       "satiricalDevice": "False Civility",
       "contentTier": "Tier 1: Deep Dive",
       "tags": ["Clinical Insight", "Family Education", "Discharge Reality"]
