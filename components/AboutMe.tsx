@@ -139,6 +139,32 @@ const AboutMe: React.FC = () => {
            <p className="text-stone-600">Neurorehabilitation Case Manager</p>
            <p className="text-stone-600">Last Resort Rehab Hospital</p>
            <p className="text-stone-500 italic mt-2">Documenting the space between what the system says and what it actually does</p>
+           
+           <div className="mt-8 flex flex-wrap gap-4 items-center">
+             <a 
+               href="https://buymeacoffee.com/jorgearenivar" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-flex items-center px-6 py-3 bg-[#FFDD00] text-stone-900 font-bold rounded-full hover:bg-[#FFEA00] transition-colors shadow-sm transform hover:-translate-y-0.5"
+             >
+               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.216 6.415l-.132-.666c-.119-.596-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.098H4.643c-.386 0-.717.136-.957.262-.731.391-1.076 1.107-1.144 1.854l-.273 2.949c-.198 2.126.335 4.39 2.163 5.568 1.494.962 3.298 1.166 4.969 1.166h.016c.453 0 .866-.166 1.254-.367.437-.226.96-.499 1.571-.499.58 0 1.092.26 1.52.484.407.213.847.382 1.332.382h.013c1.67 0 3.474-.204 4.969-1.166 1.637-1.055 2.222-2.957 2.257-4.787l.088-2.613c.895-.418 1.517-1.42 1.487-2.646-.021-.861-.403-1.606-1.11-2.066l.019-.009zm-3.87 6.137c-.12.628-.485 1.139-1.029 1.488-1.077.694-2.45.84-3.693.84h-.011c-.139 0-.256-.051-.383-.117-.557-.289-1.36-.706-2.41-.706-1.078 0-1.895.426-2.457.717-.122.063-.235.106-.364.106h-.01c-1.242 0-2.615-.146-3.692-.84-1.039-.669-1.343-2.029-1.229-3.256l.273-2.936c.026-.289.135-.503.354-.618.106-.056.23-.082.355-.082h13.85c.061 0 .152.012.233.041.227.08.384.281.428.498l.132.666c.204 2.115.344 3.19.654 4.139zm2.427-4.22c.106.326.046.726-.226 1.029-.271.303-.701.442-1.066.42l-.083-.734-.055-1.551c.677.07 1.265.419 1.43 0.836z" /></svg>
+               Buy Me a Coffee
+             </a>
+             <div className="flex gap-4 items-center">
+                <a href="https://www.linkedin.com/in/jorgearenivar/" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-900 transition-colors">
+                  <span className="sr-only">LinkedIn</span>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" className="text-stone-400 hover:text-stone-900 transition-colors">
+                  <span className="sr-only">X (Twitter)</span>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/jorge.arenivar" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-900 transition-colors">
+                  <span className="sr-only">Facebook</span>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+             </div>
+           </div>
          </div>
       </div>
     </div>
