@@ -11,9 +11,11 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
 
   const navItems = [
     { label: 'Stories', view: AppView.HOME },
+    { label: 'Checklist', view: AppView.CHECKLIST_GENERATOR },
+    { label: 'Benefits', view: AppView.BENEFITS_TRANSLATOR },
     { label: 'Archive', view: AppView.ARCHIVE },
-    { label: 'About Me', view: AppView.ABOUT },
-    { label: 'Submit Story', view: AppView.SUBMIT },
+    { label: 'About', view: AppView.ABOUT },
+    { label: 'Submit', view: AppView.SUBMIT },
   ];
 
   const handleNavClick = (view: AppView) => {
