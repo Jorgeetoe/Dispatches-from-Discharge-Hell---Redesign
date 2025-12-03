@@ -58,6 +58,17 @@ function App() {
               Back to Stories
             </button>
             <article className="prose prose-stone prose-lg mx-auto mb-16">
+              
+              {selectedStory.imageUrl && (
+                <div className="w-full mb-8 rounded-xl overflow-hidden shadow-sm border border-stone-200">
+                  <img 
+                    src={selectedStory.imageUrl} 
+                    alt={selectedStory.imageAlt || selectedStory.title}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              )}
+
               <div className="flex items-center space-x-2 text-sm font-bold text-rose-600 uppercase tracking-wider mb-4">
                 <span>{selectedStory.tags.join(', ')}</span>
               </div>

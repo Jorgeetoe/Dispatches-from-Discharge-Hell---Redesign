@@ -15,6 +15,8 @@ export interface Story {
   intendedReader: string;
   fixerElements: string[];
   status?: string;
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
 export enum AppView {

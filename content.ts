@@ -164,7 +164,9 @@ Disclaimer: Views are my own, representing the collective frustration and resili
       "systemLayer": "Hospital, Insurance, Post-Acute",
       "intendedReader": "Healthcare Professional",
       "fixerElements": ["The Gap", "Competing Interests", "Hidden Information", "Moral Compromise", "Cost Bearer"],
-      "status": "published"
+      "status": "published",
+      "imageUrl": "https://placehold.co/1200x630/e7e5e4/be123c?text=Hope+vs+Reality:+The+Tightrope",
+      "imageAlt": "A conceptual image representing the delicate balance between hope and preparation"
     },
     {
       "id": "care-vs-coverage-itb-pump-part2",
@@ -301,10 +303,12 @@ Disclaimer: Views expressed are solely my own, representing the collective frust
       "extractionMechanism": "Information Asymmetry, Systemic Coordination Failure, Regulatory Capture",
       "contentTier": "Tier 1",
       "satiricalDevice": "False Civility, Institutional Logic, Bureaucratic Translation, System Failure Cascade, Human Cost Counter",
-      "systemLayer": "Insurance, Hospital, Post-Acute, Equipment/Vendor",
+      "systemLayer": "Insurance, Hospital, Post-Acute",
       "intendedReader": "Healthcare Professional",
       "fixerElements": ["The Gap", "Competing Interests", "Hidden Information", "Moral Compromise", "Cost Bearer"],
-      "status": "published"
+      "status": "published",
+      "imageUrl": "https://placehold.co/1200x630/e7e5e4/be123c?text=Care+vs+Coverage:+The+Desert",
+      "imageAlt": "A desolate desert highway representing the lack of access to specialist care"
     },
     {
       "id": "survival-system-failure-itb-pump-part3",
@@ -639,7 +643,9 @@ A note from Jorge: This entire series, not just this final section, would have b
       "systemLayer": "Hospital, Post-Acute, Insurance, Equipment/Vendor, Regulatory, Workforce",
       "intendedReader": "Healthcare Professional",
       "fixerElements": ["The Gap", "Competing Interests", "Hidden Information", "Moral Compromise", "Cost Bearer"],
-      "status": "published"
+      "status": "published",
+      "imageUrl": "https://placehold.co/1200x630/e7e5e4/be123c?text=System+Failure:+Crisis",
+      "imageAlt": "A red emergency phone off the hook symbolizing the systemic communication failures in ITB pump management"
     }
   ]
 };

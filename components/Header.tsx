@@ -34,8 +34,15 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
             className="flex-shrink-0 flex items-center cursor-pointer group"
             onClick={() => handleNavClick(AppView.HOME)}
           >
-            <div className="w-8 h-8 bg-rose-600 rounded-full flex items-center justify-center mr-3 group-hover:bg-rose-700 transition-colors">
-              <span className="text-white font-serif font-bold text-lg">D</span>
+            <div className="w-8 h-8 flex items-center justify-center mr-3 text-rose-600 group-hover:text-rose-700 transition-colors">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                {/* Compass Circle */}
+                <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="2.5" className="opacity-20" />
+                {/* North/South Markers */}
+                <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="opacity-40" />
+                {/* Medical Cross Center */}
+                <path d="M16 11V21M11 16H21" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+              </svg>
             </div>
             <h1 className="font-serif font-bold text-lg sm:text-xl text-stone-900 tracking-tight">
               Dispatches<span className="text-rose-600">.</span>
