@@ -14,20 +14,6 @@ const StoryFeed: React.FC<StoryFeedProps> = ({ stories, onReadStory }) => {
           key={story.id} 
           className="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden hover:shadow-md transition-shadow"
         >
-          {story.imageUrl && (
-            <div 
-              className="w-full h-64 overflow-hidden border-b border-stone-100 cursor-pointer relative group"
-              onClick={() => onReadStory(story)}
-            >
-              <img 
-                src={story.imageUrl} 
-                alt={story.imageAlt || story.title} 
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/0 transition-colors duration-500"></div>
-            </div>
-          )}
-
           <div className="p-8">
             
             {/* METADATA BADGES - NEW */}

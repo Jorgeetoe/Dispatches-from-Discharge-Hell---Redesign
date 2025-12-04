@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import StoryFeed from './components/StoryFeed';
 import ChecklistGenerator from './components/ChecklistGenerator';
-import BenefitsTranslator from './components/BenefitsTranslator';
 import AboutMe from './components/AboutMe';
 import SubmitStory from './components/SubmitStory';
-import FrameworkBreakdown from './components/FrameworkBreakdown';
 import Archive from './components/Archive';
 import NewsletterSignup from './components/NewsletterSignup';
 import FAQ from './components/FAQ';
-import FrameworkLegend from './components/FrameworkLegend';
-import JargonBuster from './components/JargonBuster';
 import { MOCK_STORIES } from './constants';
 import { AppView, Story } from './types';
 
@@ -60,16 +56,6 @@ function App() {
             </button>
             <article className="prose prose-stone prose-lg mx-auto mb-16">
               
-              {selectedStory.imageUrl && (
-                <div className="w-full mb-8 rounded-xl overflow-hidden shadow-sm border border-stone-200">
-                  <img 
-                    src={selectedStory.imageUrl} 
-                    alt={selectedStory.imageAlt || selectedStory.title}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              )}
-
               <div className="flex items-center space-x-2 text-sm font-bold text-rose-600 uppercase tracking-wider mb-4">
                 <span>{selectedStory.tags.join(', ')}</span>
               </div>
@@ -89,19 +75,12 @@ function App() {
                 {selectedStory.content}
               </div>
               
-              <FrameworkBreakdown story={selectedStory} />
             </article>
           </div>
         );
 
       case AppView.CHECKLIST_GENERATOR:
         return <ChecklistGenerator />;
-
-      case AppView.BENEFITS_TRANSLATOR:
-        return <BenefitsTranslator />;
-
-      case AppView.JARGON_BUSTER:
-        return <JargonBuster />;
         
       case AppView.ABOUT:
         return <AboutMe />;
@@ -112,9 +91,6 @@ function App() {
       case AppView.FAQ:
         return <FAQ />;
 
-      case AppView.FRAMEWORK_LEGEND:
-        return <FrameworkLegend />;
-        
       default:
         return <div>Page not found</div>;
     }
@@ -131,12 +107,9 @@ function App() {
           <p className="font-serif text-2xl text-stone-100 font-bold mb-4">Dispatches from Discharge Hell</p>
           
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 text-sm font-medium">
-             <button onClick={() => setCurrentView(AppView.FRAMEWORK_LEGEND)} className="hover:text-white transition-colors">Framework Legend</button>
              <button onClick={() => setCurrentView(AppView.FAQ)} className="hover:text-white transition-colors">FAQ</button>
              <button onClick={() => setCurrentView(AppView.HOME)} className="hover:text-white transition-colors">Stories</button>
              <button onClick={() => setCurrentView(AppView.CHECKLIST_GENERATOR)} className="hover:text-white transition-colors">Checklist</button>
-             <button onClick={() => setCurrentView(AppView.BENEFITS_TRANSLATOR)} className="hover:text-white transition-colors">Benefits Translator</button>
-             <button onClick={() => setCurrentView(AppView.JARGON_BUSTER)} className="hover:text-white transition-colors">Jargon Buster</button>
              <button onClick={() => setCurrentView(AppView.ABOUT)} className="hover:text-white transition-colors">About</button>
           </div>
           

@@ -13,7 +13,6 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isOpen, on
     { label: 'Dispatches', icon: '✍️', view: AppView.HOME },
     { label: 'Archive', icon: '🗄️', view: AppView.ARCHIVE },
     { label: 'Checklist Gen', icon: '✅', view: AppView.CHECKLIST_GENERATOR },
-    { label: 'Benefits Translator', icon: '🏥', view: AppView.BENEFITS_TRANSLATOR },
     { label: 'LinkedIn Gen', icon: '⚡', view: AppView.LINKEDIN_GENERATOR },
     { label: 'Submit Story', icon: '📮', view: AppView.SUBMIT },
     { label: 'About Me', icon: '👨‍⚕️', view: AppView.ABOUT },
