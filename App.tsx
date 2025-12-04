@@ -10,6 +10,7 @@ import Archive from './components/Archive';
 import NewsletterSignup from './components/NewsletterSignup';
 import FAQ from './components/FAQ';
 import FrameworkLegend from './components/FrameworkLegend';
+import JargonBuster from './components/JargonBuster';
 import { MOCK_STORIES } from './constants';
 import { AppView, Story } from './types';
 
@@ -98,6 +99,9 @@ function App() {
 
       case AppView.BENEFITS_TRANSLATOR:
         return <BenefitsTranslator />;
+
+      case AppView.JARGON_BUSTER:
+        return <JargonBuster />;
         
       case AppView.ABOUT:
         return <AboutMe />;
@@ -132,6 +136,7 @@ function App() {
              <button onClick={() => setCurrentView(AppView.HOME)} className="hover:text-white transition-colors">Stories</button>
              <button onClick={() => setCurrentView(AppView.CHECKLIST_GENERATOR)} className="hover:text-white transition-colors">Checklist</button>
              <button onClick={() => setCurrentView(AppView.BENEFITS_TRANSLATOR)} className="hover:text-white transition-colors">Benefits Translator</button>
+             <button onClick={() => setCurrentView(AppView.JARGON_BUSTER)} className="hover:text-white transition-colors">Jargon Buster</button>
              <button onClick={() => setCurrentView(AppView.ABOUT)} className="hover:text-white transition-colors">About</button>
           </div>
           

@@ -13,6 +13,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
     { label: 'Stories', view: AppView.HOME },
     { label: 'Checklist', view: AppView.CHECKLIST_GENERATOR },
     { label: 'Benefits', view: AppView.BENEFITS_TRANSLATOR },
+    { label: 'Jargon Buster', view: AppView.JARGON_BUSTER },
     { label: 'Archive', view: AppView.ARCHIVE },
     { label: 'Framework', view: AppView.FRAMEWORK_LEGEND },
     { label: 'FAQ', view: AppView.FAQ },
@@ -50,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden xl:flex space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -64,6 +65,29 @@ const Header: React.FC<HeaderProps> = ({ currentView, onChangeView }) => {
                 {item.label}
               </button>
             ))}
+          </nav>
+
+          {/* Tablet/Smaller Laptop Nav - Condensed */}
+          <nav className="hidden md:flex xl:hidden space-x-4">
+             {navItems.slice(0, 5).map((item) => (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item.view)}
+                className={`text-xs font-medium transition-colors duration-200 ${
+                  currentView === item.view
+                    ? 'text-rose-600'
+                    : 'text-stone-500 hover:text-stone-900'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+            <button 
+              onClick={() => handleNavClick(AppView.SUBMIT)}
+              className="text-xs font-medium text-stone-500 hover:text-stone-900"
+            >
+              More...
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
