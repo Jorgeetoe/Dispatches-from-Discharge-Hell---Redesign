@@ -11,6 +11,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView, isOpen, onCloseMobile }) => {
   const navItems = [
     { label: 'Dispatches', icon: '✍️', view: AppView.HOME },
+    { label: 'Field Notes', icon: '📝', view: AppView.FIELD_NOTES },
     { label: 'Archive', icon: '🗄️', view: AppView.ARCHIVE },
     { label: 'Checklist Gen', icon: '✅', view: AppView.CHECKLIST_GENERATOR },
     { label: 'LinkedIn Gen', icon: '⚡', view: AppView.LINKEDIN_GENERATOR },

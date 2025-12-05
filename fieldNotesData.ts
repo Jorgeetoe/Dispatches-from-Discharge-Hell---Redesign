@@ -1,0 +1,43 @@
+export const fieldNotesData = {
+  "entries": [
+    {
+      "id": "2025-12-05-cuban-001",
+      "date": "2025-12-05",
+      "source": "Mark Cuban",
+      "sourceType": "Twitter",
+      "sourceUrl": "https://twitter.com/mcuban",
+      "excerpt": "Big insurance carriers deny, underpay, slow pay, clawback, and create administrative mazes to make it impossible for doctors to get paid what they are owed.",
+      "jorgeCommentary": {
+        "hasCommentary": true,
+        "text": "This is Physician Constraint at scale. In catastrophic care, this administrative maze isn't just about money—it's about exhaustion. When a provider has to fight for 90 days to get paid for a procedure that took 60 minutes, they stop accepting that insurance. The patient sees a 'network shortage,' but the reality is a 'patience shortage' from providers tired of the extraction game.",
+        "relatedLinks": []
+      }
+    },
+    {
+      "id": "2025-12-02-hcdive-001",
+      "date": "2025-12-02",
+      "source": "Healthcare Dive",
+      "sourceType": "News",
+      "sourceUrl": "https://www.healthcaredive.com",
+      "excerpt": "Prior authorization delays hit a record high in Q4 2025, with 82% of physicians reporting that PA issues led to abandoned treatment plans.",
+      "jorgeCommentary": {
+        "hasCommentary": false,
+        "text": "",
+        "relatedLinks": []
+      }
+    },
+    {
+      "id": "2025-11-28-rojas-001",
+      "source": "Dutch Rojas",
+      "date": "2025-11-28",
+      "sourceType": "Twitter",
+      "sourceUrl": "https://twitter.com/dutchrojas",
+      "excerpt": "Hospitals charge 500% of Medicare rates not because it costs that much, but because they know insurance will negotiate it down to 250%. The uninsured patient, however, gets the full bill.",
+      "jorgeCommentary": {
+        "hasCommentary": true,
+        "text": "This connects directly to the 'Cost Bearer' element of our framework. The pricing strategy is a negotiation tactic between giants (Hospital vs. Payer), but the collateral damage is the individual without leverage. We see this in discharge planning when 'self-pay' options are presented as viable alternatives to denied rehab stays—they are priced for corporations, not families.",
+        "relatedLinks": ["Cost Bearer"]
+      }
+    }
+  ]
+};

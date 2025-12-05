@@ -7,6 +7,9 @@ interface FrameworkBreakdownProps {
 
 const FrameworkBreakdown: React.FC<FrameworkBreakdownProps> = ({ story }) => {
   const [showFramework, setShowFramework] = useState(false);
+  
+  // Safely handle arrays that might be undefined in some data sources
+  const fixerElements = story.fixerElements || [];
 
   return (
     <section className="mt-16 pt-12 border-t border-stone-200">
@@ -49,7 +52,7 @@ const FrameworkBreakdown: React.FC<FrameworkBreakdownProps> = ({ story }) => {
             </div>
             <div className="bg-white p-4 rounded border border-stone-200">
               <div className="text-xs font-bold text-stone-500 uppercase tracking-wider mb-1">Fixer Elements</div>
-              <div className="text-sm font-semibold text-stone-900">{story.fixerElements.join(', ')}</div>
+              <div className="text-sm font-semibold text-stone-900">{fixerElements.join(', ') || 'N/A'}</div>
             </div>
           </div>
 
@@ -58,7 +61,7 @@ const FrameworkBreakdown: React.FC<FrameworkBreakdownProps> = ({ story }) => {
             <p className="text-stone-700 leading-relaxed">
               This post exposes <strong>{story.extractionMechanism}</strong> within the <strong>{story.systemLayer}</strong>. 
               It examines the gap between stated mission and actual operations, identifies competing interests that maintain this gap, 
-              and shows who bears the cost of this misalignment. The analysis is layered across {story.fixerElements.length} core elements 
+              and shows who bears the cost of this misalignment. The analysis is layered across {fixerElements.length} core elements 
               of the Fixer Diagnostic methodology.
             </p>
           </div>

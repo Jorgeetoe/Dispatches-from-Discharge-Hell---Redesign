@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MOCK_STORIES } from '../constants';
 import StoryFeed from './StoryFeed';
+import FrameworkLegend from './FrameworkLegend';
 import { Story } from '../types';
 
 interface ArchiveProps {
@@ -128,6 +129,12 @@ const Archive: React.FC<ArchiveProps> = ({ onReadStory }) => {
       </div>
 
       <StoryFeed stories={filtered} onReadStory={onReadStory} />
+      
+      {/* Legend for the Taxonomy */}
+      <div className="mt-24 pt-12 border-t border-stone-200">
+         <h2 className="text-2xl font-serif font-bold text-stone-900 mb-8 text-center">About the Framework</h2>
+         <FrameworkLegend />
+      </div>
     </div>
   );
 };

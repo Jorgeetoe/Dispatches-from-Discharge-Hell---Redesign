@@ -7,6 +7,8 @@ import SubmitStory from './components/SubmitStory';
 import Archive from './components/Archive';
 import NewsletterSignup from './components/NewsletterSignup';
 import FAQ from './components/FAQ';
+import FieldNotes from './components/FieldNotes';
+import FrameworkBreakdown from './components/FrameworkBreakdown';
 import { MOCK_STORIES } from './constants';
 import { AppView, Story } from './types';
 
@@ -40,6 +42,9 @@ function App() {
 
       case AppView.ARCHIVE:
         return <Archive onReadStory={handleReadStory} />;
+        
+      case AppView.FIELD_NOTES:
+        return <FieldNotes />;
 
       case AppView.STORY:
         if (!selectedStory) return null;
@@ -74,6 +79,9 @@ function App() {
               <div className="whitespace-pre-line text-stone-800 font-serif leading-loose">
                 {selectedStory.content}
               </div>
+
+              {/* Added Framework Breakdown for deeper context */}
+              <FrameworkBreakdown story={selectedStory} />
               
             </article>
           </div>
@@ -109,6 +117,7 @@ function App() {
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 text-sm font-medium">
              <button onClick={() => setCurrentView(AppView.FAQ)} className="hover:text-white transition-colors">FAQ</button>
              <button onClick={() => setCurrentView(AppView.HOME)} className="hover:text-white transition-colors">Stories</button>
+             <button onClick={() => setCurrentView(AppView.FIELD_NOTES)} className="hover:text-white transition-colors">Field Notes</button>
              <button onClick={() => setCurrentView(AppView.CHECKLIST_GENERATOR)} className="hover:text-white transition-colors">Checklist</button>
              <button onClick={() => setCurrentView(AppView.ABOUT)} className="hover:text-white transition-colors">About</button>
           </div>

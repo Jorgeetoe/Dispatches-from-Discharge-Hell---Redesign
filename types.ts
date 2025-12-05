@@ -28,6 +28,7 @@ export enum AppView {
   SUBMIT = 'SUBMIT',
   ABOUT = 'ABOUT',
   FAQ = 'FAQ',
+  FIELD_NOTES = 'FIELD_NOTES',
 }
 
 export interface ChecklistItem {
@@ -59,4 +60,20 @@ export interface LinkedInPostResponse {
   headline: string;
   content: string;
   graphicDescription: string;
+}
+
+export interface FieldNoteCommentary {
+  hasCommentary: boolean;
+  text?: string;
+  relatedLinks?: string[];
+}
+
+export interface FieldNoteEntry {
+  id: string;
+  date: string;
+  source: string;
+  sourceType: string;
+  sourceUrl: string;
+  excerpt: string;
+  jorgeCommentary: FieldNoteCommentary;
 }
